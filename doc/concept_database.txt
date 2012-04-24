@@ -51,3 +51,7 @@ table config
 	karma_decay_factor
 	karma_decay_interval
 	karma_next_decay_time
+
+# with a certain amount of karma, certain privilegues may be granted
+table privilegues
+	key
