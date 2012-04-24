@@ -13,7 +13,7 @@ table task
 	name
 	desc
 	votes_required
-	karma
+	base_karma
 
 # a single user and its karma
 table user
@@ -30,6 +30,12 @@ table vote
 	desc
 	benefit_of = user.id
 	started_by = user.id
+
+# if you want to upvote / enforce a certain task, you can offer more karma for it by paying with your karma
+table karma_enforcement
+	vote.id	\__ unique
+	user.id	/
+	karma
 
 # a user can only vote once
 table cast_vote
@@ -51,6 +57,7 @@ table config
 	karma_decay_factor
 	karma_decay_interval
 	karma_next_decay_time
+	karma_enforce_exchange_rate
 
 # with a certain amount of karma, certain privilegues may be granted
 table privilegues
