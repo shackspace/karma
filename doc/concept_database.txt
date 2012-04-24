@@ -1,0 +1,53 @@
+
+# long-term achvievements for repeated fulfillment of tasks by an individual user
+table achievement
+	id unique
+	name
+	desc
+	task.id
+	count_required
+
+# a work package (give a talk, clean the space, build infrastructure, cook something for everyone, help people, ...)
+table task
+	id unique
+	name
+	desc
+	votes_required
+	karma
+
+# a single user and its karma
+table user
+	id unique
+	ldap.id
+	current_karma
+
+# holds all possible current and past votes
+table vote
+	id unique
+	task.id
+	creation_date
+	close_date
+	desc
+	benefit_of = user.id
+	started_by = user.id
+
+# a user can only vote once
+table cast_vote
+	vote.id          \__ unique
+	voter = user.id  /
+
+# cross table of all tasks a given user successfully collected
+table collected_tasks
+	user.id	\__ unique
+	vote.id	/
+
+# collection of medals ;)
+table collected_achievements
+	user.id
+	achievement.id
+
+# the config, duh
+table config
+	karma_decay_factor
+	karma_decay_interval
+	karma_next_decay_time
