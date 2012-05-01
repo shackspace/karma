@@ -1,4 +1,15 @@
+karma database model
+====================
 
+CAVEAT
+------
+This is a relational database design and will not be used in the karma system.
+It's mostly there for keeping track of some features that I want to implement.
+
+The first karma version will be backed by a redis database and the model documented herein will reflect this in due time.
+
+MODEL (RDB)
+-----------
 # long-term achvievements for repeated fulfillment of tasks by an individual user
 table achievement
 	id unique
