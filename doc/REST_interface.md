@@ -17,8 +17,10 @@ User handling
 -------------
 If authentication is done using an LDAP backend creating new users or deleting them is probably not something karma will handle itself.  Also modifying user settings is way more limited in this use case.
 
-### /users (GET)
+### /users (GET, PUSH, DELETE)
 A list of users using the karma system.
+A PUSH request will create a karma user from a specified LDAP user.
+DELETE could be tricky and has to be thought out some more.
 
 ### /users/:id (GET)
 Consolidated list of user information
@@ -32,10 +34,11 @@ Consolidated list of user information
 - Lost karma
 - Spent karma
 
-### /users/:id/polls(/open,/won,/lost)
-### /users/:id/deeds
-### /users/:id/achievements
-### /users/:id/karma(/alltime,/lost,/spent)
+### By-user details
+- /users/:id/polls(/open,/won,/lost)
+- /users/:id/deeds
+- /users/:id/achievements
+- /users/:id/karma(/alltime,/lost,/spent)
 
 Authentication
 --------------
@@ -48,10 +51,13 @@ Deeds
 -----
 Deeds are small, singular tasks that, when done, further the good of everyone (giving a workshop, building something awesome, organizing events, cooking for everyone, cleaning, ...)
 
-### /deeds (GET)
-List of all deeds
+### /deeds (GET, POST)
+List of all deeds.
+New deeds can be posted by karma admins or users with high enough karma.
+A deed is defined by meta information like the base karma one can achieve doing the deed (can be zero to allow deeds that can only be enforced if they for instance do not have a easily definable amount of karma), required number of upvotes, voting duration, etc.
+The required number of upvotes could also be bound (in parts) to the amount of karma to be gained.
 
-### /deeds/:id (GET, PUT, POST, DELETE)
+### /deeds/:id (GET, PUT, DELETE)
 Details for a single deed
 
 Polls
@@ -59,8 +65,11 @@ Polls
 Peer review polls to decide whether someone actually did a deed.
 Maybe add filters for active, closed, won, lost polls?
 
-### /polls (GET)
-List of all polls
+### /polls (GET, PUSH)
+List of all polls.
+A new poll can be started by karma admins or users with high enough karma.
+A single poll is defined by a (deed, user, karma) tupel.
+If several people worked on the same deed, individual polls should be started.
 
 ### /polls/:id (GET, PUT, POST, DELETE)
 What can be changed with PUT is open to discussion.
