@@ -8,7 +8,6 @@ If your system runs on karma.loc a suitable hostname would be api.karma.loc.
 
 It is strongly recommended to only offer access to the API via an SSL secured connection.
 
-
 Generic information
 -------------------
 ### / (GET)
@@ -47,13 +46,23 @@ Authentication will probably be implemented using the scheme presented at http:/
 
 Deeds
 -----
+Deeds are small, singular tasks that, when done, further the good of everyone (giving a workshop, building something awesome, organizing events, cooking for everyone, cleaning, ...)
+
+### /deeds (GET)
+List of all deeds
+
 ### /deeds/:id (GET, PUT, POST, DELETE)
-Individual deeds and tasks that one can do to increase karma
+Details for a single deed
 
 Polls
 -----
-### /polls/:id (GET, PUT, POST, DELETE)
 Peer review polls to decide whether someone actually did a deed.
+Maybe add filters for active, closed, won, lost polls?
+
+### /polls (GET)
+List of all polls
+
+### /polls/:id (GET, PUT, POST, DELETE)
 What can be changed with PUT is open to discussion.
 
 ### /polls/:id/vote (POST, DELETE)
