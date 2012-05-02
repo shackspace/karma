@@ -21,7 +21,7 @@ If authentication is done using an LDAP backend creating new users or deleting t
 ### /users (GET)
 A list of users using the karma system.
 
-### /users/<id> (GET)
+### /users/:id (GET)
 Consolidated list of user information
 - List of open polls by user
 - List of past polls bei user
@@ -33,10 +33,10 @@ Consolidated list of user information
 - Lost karma
 - Spent karma
 
-### /users/<id>/polls(/open,/won,/lost)
-### /users/<id>/deeds
-### /users/<id>/achievements
-### /users/<id>/karma(/alltime,/lost,/spent)
+### /users/:id/polls(/open,/won,/lost)
+### /users/:id/deeds
+### /users/:id/achievements
+### /users/:id/karma(/alltime,/lost,/spent)
 
 Authentication
 --------------
@@ -47,19 +47,19 @@ Authentication will probably be implemented using the scheme presented at http:/
 
 Deeds
 -----
-### /deeds/<id> (GET, PUT, POST, DELETE)
+### /deeds/:id (GET, PUT, POST, DELETE)
 Individual deeds and tasks that one can do to increase karma
 
 Polls
 -----
-### /polls/<id> (GET, PUT, POST, DELETE)
+### /polls/:id (GET, PUT, POST, DELETE)
 Peer review polls to decide whether someone actually did a deed.
 What can be changed with PUT is open to discussion.
 
-### /polls/<id>/vote (POST, DELETE)
+### /polls/:id/vote (POST, DELETE)
 Upvote a poll.  Maybe also have to add downvote?
 
-### /polls/<id>/boost/<karma> (POST)
+### /polls/:id/boost/:karma (POST)
 Add some of your own karma to increase the amount gained by winning this poll.
 Once karma is added, it cannot be taken back, so no PUT or DELETE here.
 You will however get your karma back should the poll fail or get deleted.
@@ -69,7 +69,7 @@ Achievements
 ### /achievements (GET)
 Get a list of all achievements
 
-### /achievements/<id> (GET, PUT, POST, DELETE)
+### /achievements/:id (GET, PUT, POST, DELETE)
 Infos about a specific achievement
 - Who won it, when, how often
 - What has to be done to earn this achievement
