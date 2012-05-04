@@ -5,7 +5,7 @@ Install development headers of openssl and libreadline as well as curl
 
 	sudo apt-get install libssl-dev libreadline-dev curl
 
-Install rvm
+Install [rvm](http://rvm.io/)
 
 	curl -L get.rvm.io | bash -s stable
 
@@ -25,7 +25,7 @@ Install openssl for Ruby
 
 	rvm pkg install openssl
 
-Create per-project 'karma' gemset as described here: https://rvm.io/rvm/best-practices/
+Create [per-project](https://rvm.io/rvm/best-practices/) 'karma' gemset
 
 	rvm gemset create karma
 	rvm gemset use karma
@@ -34,3 +34,5 @@ Install gems
 
 	gem install bundler haml net-ldap rack rack-protection \
 	rake redis rubygems-bundler rvm sinatra sinatra-respond_to tilt
+
+You might have to edit the .rvmrc found in the root folder of the project, specifically the exact environment_id you're using
