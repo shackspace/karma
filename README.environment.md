@@ -36,3 +36,7 @@ Install gems
 	rake redis rubygems-bundler rvm sinatra sinatra-respond_to tilt
 
 You might have to edit the .rvmrc found in the root folder of the project, specifically the exact environment_id you're using
+
+Create SSL certificates for your server by either issuing the full command below or simply running the makecert.sh script
+
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert/karma.key -out cert/karma.crt
