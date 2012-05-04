@@ -3,34 +3,34 @@ karma runtime environment
 
 Install development headers of openssl and libreadline as well as curl
 
-> sudo apt-get install libssl-dev libreadline-dev curl
+	sudo apt-get install libssl-dev libreadline-dev curl
 
 Install rvm
 
-> curl -L get.rvm.io | bash -s stable
+	curl -L get.rvm.io | bash -s stable
 
 Source rvm into your sell environment.  Also add this to the .*rc script of your shell.
 
-> source ~/.rvm/scripts/rvm
+	source ~/.rvm/scripts/rvm
 
 Check additional requirements by rvm and follow instructions
 
-> rvm requirements
+	rvm requirements
 
 Install Ruby 1.9.3
 
-> rvm install 1.9.3
+	rvm install 1.9.3
 
 Install openssl for Ruby
 
-> rvm pkg install openssl
+	rvm pkg install openssl
 
 Create per-project 'karma' gemset as described here: https://rvm.io/rvm/best-practices/
 
-> rvm gemset create karma
-> rvm gemset use karma
+	rvm gemset create karma
+	rvm gemset use karma
 
 Install gems
 
-> gem install bundler haml net-ldap rack rack-protection \
-> rake redis rubygems-bundler rvm sinatra sinatra-respond_to tilt
+	gem install bundler haml net-ldap rack rack-protection \
+	rake redis rubygems-bundler rvm sinatra sinatra-respond_to tilt
